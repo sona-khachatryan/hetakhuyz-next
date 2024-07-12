@@ -6,7 +6,6 @@ import {getDataToEdit} from "@/api/fetchData";
 import EditContentList from "./EditContentList.jsx";
 import {usePathname} from "next/navigation";
 import {SelectedValueContext} from "@/components/adminside/adminClientLayout/AdminClientLayout";
-// import {Outlet, useLocation} from "react-router-dom";
 
 function EditContentMain({children}) {
     const selectedStates = useContext(SelectedValueContext);

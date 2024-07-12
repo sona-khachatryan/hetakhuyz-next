@@ -1,13 +1,14 @@
+'use client';
 import {useState, useEffect} from 'react'
 import './liveeditcontent.style.scss'
-import {useNavigate, useParams} from 'react-router-dom'
-import { address } from '../../../../repetitiveVariables/variables'
+import { address } from '@/repetitiveVariables/variables'
 import axios from '../../interceptor'
+import {useParams, useRouter} from "next/navigation";
 
 const EditLive = () => {
     const [dataId,setDataId] = useState([]);
     const {id} = useParams();
-    const navigate = useNavigate();
+    const router = useRouter();
 
   useEffect(()=>{
     (async () => {
@@ -25,7 +26,7 @@ const EditLive = () => {
       try {
         const {data} = await axios.delete(`${address}/live/delete/${id}`);
           console.log('deleted live');
-          navigate('/admin/edit');
+          router.push('/admin/edit');
       } catch (error) {
         console.log(error)
       }
@@ -33,7 +34,7 @@ const EditLive = () => {
   }
 
   const handleEdit = () => {
-      navigate(`/admin/edit/${id}/edit-content`, {state: {title: 'Ուղիղ եթեր', id: 'live'}})
+      router.push(`/admin/edit/${id}/edit-content`);
   }
 
   return (

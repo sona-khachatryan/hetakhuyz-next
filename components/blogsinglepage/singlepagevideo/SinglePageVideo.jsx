@@ -1,9 +1,10 @@
+'use client';
 import { useState , useEffect } from "react"
-import { useParams } from "react-router-dom"
 import SinglePageBottom from "../singlepagebottom/SinglePageBottom"
 import "./singlepagevideo.style.scss"
 import axios from "axios"
-import { address, handleDate, scrollTop } from "../../../repetitiveVariables/variables"
+import { address, handleDate, scrollTop } from "@/repetitiveVariables/variables"
+import {useParams} from "next/navigation";
 
 
 const SinglePageVideo = () => {

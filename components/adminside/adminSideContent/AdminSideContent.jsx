@@ -1,7 +1,6 @@
 'use client';
 import './adminSideContent.style.scss';
 import {createContext, useEffect, useState} from "react";
-// import {useLocation, Outlet} from "react-router-dom";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 
