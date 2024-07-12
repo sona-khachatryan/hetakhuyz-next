@@ -4,6 +4,7 @@ import ArticleSubsection from "../article/ArticleSubsection"
 import { useState , useEffect } from "react"
 import {getAllNews, getNewsBySectionId, getSections} from "@/api/fetchData";
 import Link from "next/link";
+import '../armenia/armenia.style.scss';
 
 const Region = () => {
   const [data,setData] = useState([])
@@ -44,7 +45,7 @@ const Region = () => {
       <main className="region_page">
           <div className="region_title_container">
               <h2>Տարածաշրջան</h2>
-              <hr  className="region_line"/>
+              <hr className="region_line"/>
               <ul>
                   <li><Link onClick={()=>handleTop("georgia")}  href={'/region#georgia'}>Վրաստան</Link></li>
                   <li><Link onClick={()=>handleTop('turkey')} href={'/region#turkey'}>Թուրքիա</Link></li>
