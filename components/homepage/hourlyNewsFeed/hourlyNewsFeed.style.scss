@@ -102,6 +102,24 @@
   text-overflow: ellipsis;
 }
 
+.view-more-btn {
+  margin-top: 20px;
+  display: none;
+  color: #f0f5f9;
+  background-color: #B31312;
+  height: 40px;
+  font-family: "BraindYerevan";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
 @media screen and (max-width:1240px) {
   .hourly_news_feed_container {
     height: 2050px;
@@ -122,5 +140,8 @@
   }
   .hourly_news_feed {
     overflow-y: hidden;
+  }
+  .view-more-btn {
+    display: block;
   }
 }
