@@ -3,7 +3,6 @@ import axios from "axios";
 import {address} from "@/repetitiveVariables/variables";
 
 export async function generateMetadata({ params }) {
-   try {
        const id = params.id;
        const {data} = await axios.get(`${address}/live/getAll`);
        const currentLive = data.find(live => +live.id === +id);
@@ -38,9 +37,6 @@ export async function generateMetadata({ params }) {
                },
            }
        }
-   } catch (err) {
-       console.log(err);
-   }
 }
 function Page(props) {
     return (
