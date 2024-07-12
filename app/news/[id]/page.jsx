@@ -6,18 +6,18 @@ export async function generateMetadata({ params }) {
     const id = params.id;
     const {data} = await axios.get(`${address}/news/getOne/${id}`);
     return {
-        title: 'Հետախույզ լրատվական',
-        description: data.title,
+        title: data.title,
+        description: 'Հետախույզ լրատվական',
         openGraph: {
-            title: 'Հետախույզ լրատվական',
-            description: data.title,
+            title: data.title,
+            description: 'Հետախույզ լրատվական',
             url: `https://hetakhuyz.am/news/${id}`,
             images: `${address}/${data.img}`,
         },
         twitter: {
             card: 'summary_large_image',
-            title: 'Հետախույզ լրատվական',
-            description: data.title,
+            title: data.title,
+            description: 'Հետախույզ լրատվական',
             images: [`${address}/${data.img}`],
         },
     }

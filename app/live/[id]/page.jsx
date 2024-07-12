@@ -8,32 +8,32 @@ export async function generateMetadata({ params }) {
        const currentLive = data.find(live => +live.id === +id);
        if(currentLive) {
            return {
-               title: 'Հետախույզ լրատվական',
-               description: currentLive.title,
+               title: currentLive.title,
+               description: 'Հետախույզ լրատվական',
                openGraph: {
-                   title: 'Հետախույզ լրատվական',
-                   description: currentLive.title,
+                   title: currentLive.title,
+                   description: 'Հետախույզ լրատվական',
                    url: `https://hetakhuyz.am/live/${id}`,
                },
                twitter: {
                    card: 'summary_large_image',
-                   title: 'Հետախույզ լրատվական',
-                   description: currentLive.title,
+                   title: currentLive.title,
+                   description: 'Հետախույզ լրատվական',
                },
            }
        } else {
            return  {
-               title: 'Հետախույզ լրատվական',
-               description: 'Ուղիղ եթեր',
+               title: 'Ուղիղ եթեր' ,
+               description: 'Հետախույզ լրատվական',
                openGraph: {
-                   title: 'Հետախույզ լրատվական',
-                   description: 'Ուղիղ եթեր',
+                   title: 'Ուղիղ եթեր' ,
+                   description:'Հետախույզ լրատվական',
                    url: `https://hetakhuyz.am/live`,
                },
                twitter: {
                    card: 'summary_large_image',
-                   title: 'Հետախույզ լրատվական',
-                   description: 'Ուղիղ եթեր',
+                   title: 'Ուղիղ եթեր' ,
+                   description: 'Հետախույզ լրատվական',
                },
            }
        }
