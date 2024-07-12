@@ -58,18 +58,21 @@ function HourlyNewsFeed(props) {
             <div className='hourly_news_feed'>
                 {newsToShow?.length ?
                     <>
-                        {newsToShow.map(singleNews =>
-                            <Link key={singleNews.id} href={`/news/${singleNews?.id}`}>
+                        {newsToShow.map(singleNews => {
+                            const date = new Date(singleNews?.createdAt);
+                            const localTime = date.toTimeString();
+                            return (<Link key={singleNews.id} href={`/news/${singleNews?.id}`}>
                                 <div className='hourly_newsCard'>
                                     <div  className='hourly_newsCard_createdAt'>
                                         <div></div>
-                                        <span>{singleNews.createdAt.slice(11, 16)}</span>
+                                        <span>{localTime.slice(0, 5)}</span>
                                     </div>
                                     <div className='hourly_newsCard_title'>
                                         {singleNews.title}
                                     </div>
                                 </div>
-                            </Link>
+                            </Link>)
+                        }
                        )}
                     </>
                     :
