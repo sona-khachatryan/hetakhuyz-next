@@ -110,7 +110,7 @@ const LiveStream = () => {
               </div>
               <div className="many_views_container">
                   <h2>Շատ դիտվածներ</h2>
-                  <div>
+                  <div className='most-watched'>
                       {dataWatch.length ? dataWatch.map((data,key)=>{
                           if(manyViewsQuantity<key)return
                           return <Link href={`/news/${data?.id}`} key={key}><WatchClip  data={data}/></Link>

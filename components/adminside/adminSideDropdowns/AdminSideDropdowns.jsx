@@ -1,14 +1,15 @@
+'use client';
 import {useContext, useEffect, useState} from 'react';
 import './adminSideDropdowns.style.scss';
 import SingleDropdown from "./SingleDropdown.jsx";
-import {getSections, getSubsections} from "../../../api/fetchData.js";
-import {SelectedValueContext} from "../adminSideContent/AdminSideContent.jsx";
-import {contentTypeData} from "../../../repetitiveVariables/variables.js";
-import {useLocation} from "react-router-dom";
+import {getSections, getSubsections} from "@/api/fetchData";
+import {contentTypeData} from "@/repetitiveVariables/variables";
+import {usePathname} from "next/navigation";
+import {SelectedValueContext} from "@/components/adminside/adminClientLayout/AdminClientLayout";
 
 function AdminSideDropdowns(props) {
 
-    const {pathname} = useLocation();
+    const pathname = usePathname();
     const [sections, setSections] = useState([]);
     const [subSections, setSubSections] = useState([]);
     const [countries, setCountries] = useState([]);

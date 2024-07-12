@@ -1,5 +1,5 @@
 .live_stream_container{
-    padding: 90px 120px;
+    padding: 90px 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,6 +36,7 @@
 
     }
 }
+
 .aside_btn{
     display: none;
     margin-top: 30px;
@@ -89,7 +90,14 @@ button:hover{
     .many_views_btn{
         display: none;
     }
+    .most-watched {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
 }
+
 
 @media screen and (max-width:1278px) {
     .many_views_container>.many_views_btn{
@@ -121,7 +129,7 @@ button:hover{
 
 @media screen and (max-width:920px) {
     .live_stream_container{
-        padding-inline: 70px;
+        padding-inline: 60px;
         >div:first-of-type{
             h3{
                 font-size: 16px;
@@ -143,6 +151,7 @@ button:hover{
     .live_stream_container{
         padding-top: 40px;
         padding-bottom: 40px;
+        padding-inline: 40px;
         >iframe{
             height: 280px;
 
@@ -154,7 +163,7 @@ button:hover{
             margin-bottom: 24px;
         }
         >div{
-            gap: 24px;
+            gap: 20px;
         }
     }
     ul{

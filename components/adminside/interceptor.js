@@ -22,22 +22,26 @@ instance.interceptors.response.use(
 
             if (error?.response?.status === 401 && !config?.sent) { 
                 config.sent = true; 
-                
-                const {data} = await axios.get(address+'/admin/refresh', {
-                    params: {
-                        refreshToken: localStorage.getItem('refreshToken')
-                    } 
-                })
-                if (data?.accessToken) { 
-                    localStorage.setItem('accessToken', data.accessToken)
-                    localStorage.setItem('refreshToken', data.refreshToken)
-                    config.headers = { 
-                        ...config.headers, 
-                        Authorization: data?.accessToken, 
-                    }; 
-                } 
-     
-                return instance(config); 
+
+              try {
+                  const {data} = await axios.get(address+'/admin/refresh', {
+                      params: {
+                          refreshToken: localStorage.getItem('refreshToken')
+                      }
+                  })
+                  if (data?.accessToken) {
+                      localStorage.setItem('accessToken', data.accessToken)
+                      localStorage.setItem('refreshToken', data.refreshToken)
+                      config.headers = {
+                          ...config.headers,
+                          Authorization: data?.accessToken,
+                      };
+                  }
+
+                  return instance(config);
+              } catch (err) {
+                  console.log(err)
+              }
             } 
             return Promise.reject(error); 
         }, 

@@ -1,7 +1,8 @@
+'use client';
 import './selectMainNews.style.scss';
 import React, {useEffect, useState} from 'react';
-import {address, handleDate} from "../../../repetitiveVariables/variables.js";
-import {getAllNews} from "../../../api/fetchData.js";
+import {address, handleDate} from "@/repetitiveVariables/variables";
+import {getAllNews} from "@/api/fetchData";
 import axios from "../interceptor.js";
 import Alert from "../../alert/Alert.jsx";
 

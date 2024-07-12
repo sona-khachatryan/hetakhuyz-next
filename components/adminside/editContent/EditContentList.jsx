@@ -1,9 +1,10 @@
+'use client';
 import './editContent.style.scss';
 import {useContext, useEffect, useState} from 'react';
 import SingleNewsCard from "../../singleNewsCard/SingleNewsCard.jsx";
 import Pagination from "../../pagination/Pagination.jsx";
 import './editContent.style.scss';
-import {SelectedValueContext} from "../adminSideContent/AdminSideContent.jsx";
+import {SelectedValueContext} from "@/components/adminside/adminClientLayout/AdminClientLayout";
 
 function EditContentList({newsList}) {
 

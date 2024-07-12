@@ -140,11 +140,11 @@ export const getDataToEdit = async (selectedSection, selectedSub, selectedNewsTy
     }
 }
 
-export const getSingleNewsToEdit = async (setCurrentNews, setSection, setSub, setNewsType, id, selectedNewsType = {}) => {
+export const getSingleNewsToEdit = async (setCurrentNews, setSection, setSub, setNewsType, id, pathname) => {
     try {
-       if(selectedNewsType?.title && selectedNewsType?.title === 'Ուղիղ եթեր') {
+       if(pathname.includes('live')) {
            const {data} = await axios.get(`${address}/live/getAll`);
-           setNewsType(selectedNewsType);
+           setNewsType({title: 'Ուղիղ եթեր', id: 'live'});
            console.log(data.find(live => live.id === +id), 'lives')
            setCurrentNews(data.find(live => live.id === +id));
        } else {

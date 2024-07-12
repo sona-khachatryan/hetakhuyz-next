@@ -1,17 +1,19 @@
-import {NavLink, useNavigate, useParams} from 'react-router-dom'
+'use client';
 import './singleNewsInEditMode.stle.scss';
 import 'react-quill/dist/quill.core.css';
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css'
 import { useState , useEffect } from 'react'
-import {address, handleDate } from '../../../../repetitiveVariables/variables'
+import {address, handleDate } from '@/repetitiveVariables/variables'
 import axios from '../../interceptor.js'
+import {useParams, useRouter} from "next/navigation";
+import Link from "next/link";
 
 
 const SingleNewsInEditMode = () => {
     const [dataId,setDataId] = useState()
     const {id} = useParams()
-    const navigate = useNavigate();
+    const router = useRouter();
 
     useEffect(()=>{
         (async () => {
@@ -29,7 +31,7 @@ const SingleNewsInEditMode = () => {
             try {
                 const {data} = await axios.delete(`${address}/news/delete/${id}`);
                 console.log('deleted');
-                navigate('/admin/edit');
+                router.push('/admin/edit');
             } catch (error) {
                 console.log(error);
             }
@@ -40,9 +42,9 @@ const SingleNewsInEditMode = () => {
     return (
         <main className="edit_single_container">
             <div className="edit_single_section">
-                <NavLink to={`/admin/edit/${id}/edit-content`}>
+                <Link href={`/admin/edit/${id}/edit-content`}>
                     <button>Խմբագրել</button>
-                </NavLink>
+                </Link>
                 
                 {
                     dataId && dataId.country.title !== 'Հայաստան' && dataId.country.title !== 'Միջազգային'

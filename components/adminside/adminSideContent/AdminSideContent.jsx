@@ -1,15 +1,17 @@
+'use client';
 import './adminSideContent.style.scss';
 import {createContext, useEffect, useState} from "react";
-import {Link, useLocation, Outlet} from "react-router-dom";
+// import {useLocation, Outlet} from "react-router-dom";
+import Link from "next/link";
+import {usePathname} from "next/navigation";
 
-export const SelectedValueContext = createContext({});
-function AdminSideContent(props) {
+function AdminSideContent({children}) {
     const [activeHeading, setActiveHeading] = useState();
 
     const selectedSectionState = useState({});
     const selectedSubsectionState = useState({});
     const selectedNewsTypeState = useState({});
-    const {pathname} = useLocation();
+    const pathname = usePathname();
 
     useEffect(() => {
         if(pathname.includes('add')) {
@@ -23,20 +25,19 @@ function AdminSideContent(props) {
     
 
     return (
-        <SelectedValueContext.Provider value={{section: selectedSectionState, subsection: selectedSubsectionState, newsType: selectedNewsTypeState}}>
             <div className='adminSideContent container'>
                 <div className='asc_menu'>
-                    <Link to='/admin/edit'>
+                    <Link href={'/admin/edit'}>
                         <p className={activeHeading === 'edit' ? 'asc_activeHeading' : ''}>
                             Խմբագրել
                         </p>
                     </Link>
-                    <Link to='/admin/add'>
+                    <Link href={'/admin/add'}>
                         <p className={activeHeading === 'add' ? 'asc_activeHeading' : ''}>
                             Ավելացնել
                         </p>
                     </Link>
-                    <Link to='/admin/select'>
+                    <Link href={'/admin/select'}>
                         <p className={activeHeading === 'select' ? 'asc_activeHeading' : ''}>
                             Օրվա լուրեր
                         </p>
@@ -57,10 +58,9 @@ function AdminSideContent(props) {
                         }
                         </div> 
                         : ''}
-                    <Outlet/>
+                        {children}
                 </div>
             </div>
-        </SelectedValueContext.Provider>
     );
 }
 

@@ -1,15 +1,16 @@
+'use client';
 import './editSingleNewsContents.style.scss';
 import {useContext, useEffect, useState} from 'react';
 import AdminSideDropdowns from "../../adminSideDropdowns/AdminSideDropdowns.jsx";
-import {useLocation, useParams} from "react-router-dom";
-import {SelectedValueContext} from "../../adminSideContent/AdminSideContent.jsx";
-import {getSingleNewsToEdit} from "../../../../api/fetchData.js";
+import {getSingleNewsToEdit} from "@/api/fetchData";
 import ContentForm from "../../contentForm/ContentForm.jsx";
+import {useParams, usePathname} from "next/navigation";
+import {SelectedValueContext} from "@/components/adminside/adminClientLayout/AdminClientLayout";
 
 function EditSingleNewsContents(props) {
 
     const {id} = useParams();
-    const {state} = useLocation();
+    const pathname = usePathname();
     const [currentNews, setCurrentNews] = useState({});
     const selectedStates = useContext(SelectedValueContext);
     const [selectedSection, setSelectedSection] = selectedStates.section;
@@ -17,7 +18,7 @@ function EditSingleNewsContents(props) {
     const [selectedNewsType, setSelectedNewsType] = selectedStates.newsType;
 
     useEffect(() => {
-      getSingleNewsToEdit(setCurrentNews, setSelectedSection, setSelectedSubsection, setSelectedNewsType, id, state)
+      getSingleNewsToEdit(setCurrentNews, setSelectedSection, setSelectedSubsection, setSelectedNewsType, id, pathname)
     },[])
 
     return (

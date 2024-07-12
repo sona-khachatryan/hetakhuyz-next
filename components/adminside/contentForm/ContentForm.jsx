@@ -1,10 +1,11 @@
+'use client';
 import './contentForm.style.scss';
 import {useContext, useEffect, useState} from "react";
-import {SelectedValueContext} from "../adminSideContent/AdminSideContent.jsx";
 import RichEditor from "../reactquil/RichEditor.jsx";
 import axios from "../interceptor.js";
-import {address} from "../../../repetitiveVariables/variables.js";
-import {useLocation, useNavigate} from "react-router-dom";
+import {address} from "@/repetitiveVariables/variables";
+import {usePathname, useRouter} from "next/navigation";
+import {SelectedValueContext} from "@/components/adminside/adminClientLayout/AdminClientLayout";
 
 const convertYoutubeLink = (link) => {
     if(link.includes('watch')) {
@@ -17,8 +18,8 @@ const convertYoutubeLink = (link) => {
     }
 }
 function ContentForm({currentNews}) {
-    const {pathname} = useLocation();
-    const navigate = useNavigate();
+    const pathname = usePathname();
+    const router = useRouter();
 
     const {section, subsection, newsType} = useContext(SelectedValueContext);
     const [selectedNewsType, setSelectedNewsType] = newsType;
@@ -99,7 +100,7 @@ function ContentForm({currentNews}) {
                       {headers: {
                               Authorization: `bearer ${localStorage.getItem('accessToken')}`,
                           }});
-                  navigate(`/admin/edit/live/${currentNews.id}`)
+                  router.push(`/admin/edit/live/${currentNews.id}`)
               }
                 setSelectedSubsection({});
                 setSelectedSection({});
@@ -166,7 +167,7 @@ function ContentForm({currentNews}) {
                                Authorization: `bearer ${localStorage.getItem('accessToken')}`,
                            }});
                    console.log('edited');
-                   navigate(`/admin/edit/${currentNews.id}`)
+                   router.push(`/admin/edit/${currentNews.id}`)
                }
                 setSelectedSubsection({});
                 setSelectedSection({});

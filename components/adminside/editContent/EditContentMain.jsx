@@ -1,19 +1,21 @@
+'use client';
 import './editContent.style.scss';
 import {useContext, useEffect, useState} from 'react';
 import AdminSideDropdowns from "../adminSideDropdowns/AdminSideDropdowns.jsx";
-import {getDataToEdit} from "../../../api/fetchData.js";
-import {SelectedValueContext} from "../adminSideContent/AdminSideContent.jsx";
+import {getDataToEdit} from "@/api/fetchData";
 import EditContentList from "./EditContentList.jsx";
-import {Outlet, useLocation} from "react-router-dom";
+import {usePathname} from "next/navigation";
+import {SelectedValueContext} from "@/components/adminside/adminClientLayout/AdminClientLayout";
+// import {Outlet, useLocation} from "react-router-dom";
 
-function EditContentMain(props) {
+function EditContentMain({children}) {
     const selectedStates = useContext(SelectedValueContext);
     const [selectedSection] = selectedStates.section;
     const [selectedSubsection] = selectedStates.subsection;
     const [selectedNewsType] = selectedStates.newsType;
     const [newsToEdit, setNewsToEdit] = useState([]);
 
-    const {pathname} = useLocation();
+    const pathname = usePathname();
 
     useEffect(() => {
         setNewsToEdit([]);
@@ -32,7 +34,7 @@ function EditContentMain(props) {
                         <EditContentList newsList={newsToEdit}/>
                     </>
                 :
-                    <Outlet/>
+                {children}
             }
         </div>
     );

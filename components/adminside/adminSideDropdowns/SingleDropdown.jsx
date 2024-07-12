@@ -1,9 +1,10 @@
+'use client';
 import {useContext, useState} from 'react';
 import './adminSideDropdowns.style.scss';
-import {createSections, createSubsections} from "../../../api/fetchData.js";
+import {createSections, createSubsections} from "@/api/fetchData";
 import AddNewSectionForm from "../addNewSectionForm/AddNewSectionForm.jsx";
-import {SelectedValueContext} from "../adminSideContent/AdminSideContent.jsx";
-import {useLocation} from "react-router-dom";
+import {usePathname} from "next/navigation";
+import {SelectedValueContext} from "@/components/adminside/adminClientLayout/AdminClientLayout";
 function SingleDropdown({title, options, selectedValueState, updateDropDowns}) {
 
     const [active, setActive] = useState(false);
@@ -13,8 +14,7 @@ function SingleDropdown({title, options, selectedValueState, updateDropDowns}) {
     const selectStates = useContext(SelectedValueContext);
     const [selectedMainSection, setSelectedMainSection] = selectStates.section;
 
-    const {pathname} = useLocation();
-
+    const pathname = usePathname();
     const handleCreateNewSection = (section) => {
         if(title.includes('ենթ')) {
             createSubsections(section).then(res => {
