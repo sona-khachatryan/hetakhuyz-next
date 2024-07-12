@@ -41,6 +41,7 @@
   width: 100%;
   font-family: BraindYerevan;
   font-size: 32px;
+  line-height: 40px;
   font-weight: 400;
   text-align: left;
   color: #1E2022;
@@ -64,6 +65,7 @@
 @media (max-width: 1280px) {
   .single_news-card__title {
     font-size: 24px;
+    line-height: 30px;
   }
 
   .single_news-card__description {
@@ -74,6 +76,7 @@
 @media (max-width: 1024px) {
   .single_news-card__title {
     font-size: 22px;
+    line-height: 28px;
   }
 
   .single_news-card__description {
