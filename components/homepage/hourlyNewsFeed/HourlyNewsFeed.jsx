@@ -52,7 +52,9 @@ function HourlyNewsFeed(props) {
     return (
         <div className='hourly_news_feed_container'>
             <div>
-                <h3>Լրահոս</h3>
+            <Link href="/newsFeed">
+                    <h3 className='clickable-heading'>Լրահոս</h3>
+                </Link>
                 <hr/>
             </div>
             <div className='hourly_news_feed'>

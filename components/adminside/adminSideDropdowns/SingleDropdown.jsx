@@ -67,7 +67,7 @@ function SingleDropdown({title, options, selectedValueState, updateDropDowns}) {
                     ''
                 }
                 {pathname.includes('edit') && !(selectedMainSection.title === 'Տարածաշրջան' && title.includes('ենթ')) ? <p onClick={handleOptionClick}>Բոլորը</p> : ''}
-                {title.includes('տեսակ') ? '' : <p className='asd_add-new-section' onClick={openAddNewSection}>+ Ավելացնել</p>}
+                {/* {title.includes('տեսակ') ? '' : <p className='asd_add-new-section' onClick={openAddNewSection}>+ Ավելացնել</p>} */}
             </div>
             {addNewSection ? <AddNewSectionForm onClose={closeAddNewSection} onSubmit={handleCreateNewSection} title={title.includes('ենթ') ? 'ենթաբաժին' : 'բաժին'}/>: ''}
         </div>
