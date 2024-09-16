@@ -6,7 +6,41 @@
     flex-direction: column;
     align-items: center;
 }
+
+    .views{
+        display: flex !important;
+        background-color: #f0f5f9 !important;
+        align-items: center !important; 
+        width: 121px !important;
+        height: 24px !important;
+        top: 991px !important;
+        margin-left: 780px !important;
+        margin-top:-58px !important;
+        margin-bottom:40px !important;
+        gap: 0px !important;
     
+        .eye{
+            width: 22.5px !important;
+            margin-right: 5px !important;
+            color:#52616B !important;
+            height: 15px !important;
+            top: 4.5px !important;
+            left: 0.75px !important;
+            gap: 0px !important;
+        }
+        .views_p{
+        font-family: DejaVu Sans !important;
+        color:#52616B !important;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        line-height: 16.3px !important;
+        text-align: left !important;
+    
+        }
+    
+    }
+
+  
 .single_page_about_bottom{
     margin-top: 60px;
     width: 65%;
@@ -155,6 +189,8 @@
         letter-spacing: 0.01em;
 
     }
+   
+
     img,video,iframe {
         margin: 40px 0;
         width: 100%;
@@ -257,6 +293,11 @@
             min-height: 340px;
         }
     }
+    .views{
+        margin-left: 780px !important;
+               margin-top:-58px !important;
+               margin-bottom:40px !important;
+    }
 }
 
 @media screen and (max-width:1024px) {
@@ -279,6 +320,13 @@
 
     .single_page_about_bottom {
         width: 85%;
+    }
+
+    .views{
+        margin-left: 460px !important;
+        margin-top:-58px !important;
+        margin-bottom:40px !important;
+
     }
 }
 
@@ -307,6 +355,13 @@
             }
         }
     }
+  
+    .views{
+        margin-left: 280px !important;
+        margin-top:-58px !important;
+        margin-bottom:40px !important;
+
+    }
 }
 
 @media screen and (max-width:640px) {
@@ -314,6 +369,12 @@
         iframe, video {
             min-height: 250px;
         }
+    }
+    .views{
+        margin-left: 280px !important;
+        margin-top:-58px !important;
+        margin-bottom:40px !important;
+
     }
 }
 
@@ -348,6 +409,8 @@
             font-size: 22px;
         }
     }
+
+    
 }
 
 @media screen and (max-width:390px) {

@@ -16,6 +16,7 @@ const SinglePage = () => {
   const [twitterShareLink, setTwitterShareLink] = useState();
   const [shareLink, setShareLink] = useState();
   const [linkCopied, setLinkCopied] = useState(false);
+  const [viewCount, setViewCount] = useState(0); 
 
 
   useEffect(()=>{
@@ -26,6 +27,7 @@ const SinglePage = () => {
         setMostViewedNews(mostViewedNews);
         setRelatesNews(relatesNews);
         setDataId(data);
+        setViewCount(data.views); 
         setShareLink(`https://hetakhuyz.am/news/${id}`);
         setFacebookShareLink(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://hetakhuyz.am/news/${id}`)}`);
         setTwitterShareLink(`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://hetakhuyz.am/news/${id}`)}&text=${encodeURIComponent(data?.title)}`);
@@ -99,6 +101,11 @@ const SinglePage = () => {
                       {/*<div className={dataId && dataId.countryId == 1?"":dataId && dataId.countryId == 6?"international_div":"region_div"}></div>*/}
                       {/*<h3>երկար կարդալու</h3>*/}
                   </div>
+                  <div className="views">
+                <img src='/img/ph_eye.png' className="eye"/>
+                <p className="views_p">{viewCount} դիտում</p>
+                  </div>
+
                   <div className={`html_content ${dataId && dataId.country.title === 'Հայաստան' ? "html_content_armenia":dataId && dataId.country.title === 'Միջազգային' ? "html_content_international" : "html_content_region"}`} dangerouslySetInnerHTML={{__html: dataId && dataId.newsContent.description}}></div>
 
               </div>
