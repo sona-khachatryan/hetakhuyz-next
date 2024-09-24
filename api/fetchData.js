@@ -71,7 +71,7 @@ export const createSubsections = async (section) => {
 
 export const getAllNews = async () => {
     try {
-        const {data}= await axios.get(`${address}/news/getAll`)
+        const {data}= await axios.get(`${address}/news/getAll?limit=20`)
         console.log(data, 'allNews')
         return data;
     } catch (error) {
