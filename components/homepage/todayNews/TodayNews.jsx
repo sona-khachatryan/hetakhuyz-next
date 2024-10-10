@@ -1,10 +1,35 @@
-import './todaynews.style.scss'
-import Slider from './carouselslider/Slider'
-import { dates } from '../../../repetitiveVariables/variables'
+// import './todaynews.style.scss'
+// import Slider from './carouselslider/Slider'
+// import { dates } from '../../../repetitiveVariables/variables'
+
+// const Todaynews = () => {
+//   const date = new Date()
+ 
+//   return (
+//       <div className='today_news_container'>
+//           <div className='today_news_top'>
+//               <div>
+//                   <h3>Օրվա նորություններ</h3>
+//                   <hr/>
+//               </div>
+//               <p>{`${dates["0" + (date.getMonth() + 1)]} ${date.getDate()},${date.getFullYear()}`}</p>
+//           </div>
+//           <Slider/>
+//       </div>
+//   )
+// }
+
+// export default Todaynews
+
+import './todaynews.style.scss';
+import Slider from './carouselslider/Slider';
+import { dates } from '../../../repetitiveVariables/variables';
 
 const Todaynews = () => {
-  const date = new Date()
- 
+  const date = new Date();
+  
+  const monthKey = String(date.getMonth() + 1).padStart(2, '0');
+  
   return (
       <div className='today_news_container'>
           <div className='today_news_top'>
@@ -12,11 +37,11 @@ const Todaynews = () => {
                   <h3>Օրվա նորություններ</h3>
                   <hr/>
               </div>
-              <p>{`${dates["0" + (date.getMonth() + 1)]} ${date.getDate()},${date.getFullYear()}`}</p>
+              <p>{`${dates[monthKey]} ${date.getDate()}, ${date.getFullYear()}`}</p>
           </div>
           <Slider/>
       </div>
-  )
+  );
 }
 
-export default Todaynews
+export default Todaynews;
